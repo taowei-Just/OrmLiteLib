@@ -15,5 +15,9 @@ public final class VersionDao extends BaseDao<VersionBean> {
     protected Class[] getDbClassS() {
         return new Class[]{VersionBean.class};
     }
-    
+
+    @Override
+    public int getDBVersion(int version) {
+        return 1;
+    }
 }

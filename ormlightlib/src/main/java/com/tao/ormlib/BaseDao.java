@@ -66,11 +66,11 @@ public abstract class BaseDao<T> implements IDao<T> {
     public BaseDao(Context context, String dbName, int version) {
         try {
             clazz = getTableClass();
+            this.context = context;
+            this.dbName = dbName;
             databaseHelper = DatabaseHelper.getInstance(context, dbName, getDbClassS(), getDBVersion(version));
             this.dao = databaseHelper.getDao(clazz);
             databaseHelper.setSignName(DB_SIGN_NAME);
-            this.context = context;
-            this.dbName = dbName;
         } catch (Exception e) {
             e.printStackTrace();
         }
